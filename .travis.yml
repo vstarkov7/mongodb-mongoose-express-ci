@@ -1,8 +1,17 @@
 language: node_js
 node_js:
-  - 'stable'
+- stable
 install: npm install
 services:
-  - mongodb
+- mongodb
 script: npm test
 after_success: npm run coverage
+deploy:
+  provider: heroku
+  api_key:
+    secure: oBpI6hTqn0IKwYDQ90tyzLgQDpfPtV9Jazf2FqiOgckiSIkz91dsqm2uFx+0Ow44sLPvLnhaMXrts1j/jii8y4sQJGMceZ0N19KEW5a38i84gR2CyVX4lwlRcgHKHkNoCdASVgeoF4GknXMrEYf0dpBdcFPWvGDWo+Awo8tusitiL22WgGpZjlmVmxb8is+ifzDIRWlcqKW+EQjgfqOPSuh37kk5KQEhruR0lOc2+afk2ozFU8Nu1Q77V55G38dIo6BMubPA3DtO0jR5YXwgXtXoY6I3wIcH8J62Z5gEEaS1HMtvl2gGaYFXk/1Aft1/m9eBVRt4o2n2zckl6I+B0wxnpISehN+Xmylb/zTRiG7Ewy/uWLjBkDME9l075o40kgKM70sNGgRt9snFcbNquWabMK4KVlcXegvUPzktsyANLEUzG1hIxbAaaXHzvEiCP4bhtyZe2aaK7bjO6V6DZ4CLAhJuYbrGNVHIKkxf1yY5Ep7mNalrPGiduhBc4SpFe9zCYdNJdE0nF781tu/oLUX5/+vcVxtY1Mi8R9JljBcVJTFytWVg9hcrO6WsYgRnrXkzRycPo80KZUz/r0JA3MkWx2ywbAUz7X/4dsgW83unp2/w7XYrHXf7elYsd/sg6ptboJYYy9W/DU6QO0aiuNhCJKjdtUT7ENh/Rz0kSR4=
+  app: slavas-travis-ci-test-app
+  on:
+    repo: vstarkov7/mongodb-mongoose-express-ci
+run:
+    - "node seed/userProjects.js"
