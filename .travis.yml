@@ -13,5 +13,5 @@ deploy:
   app: slavas-travis-ci-test-app
   on:
     repo: vstarkov7/mongodb-mongoose-express-ci
-script:
+run:
     - "node seed/userProjects.js"
